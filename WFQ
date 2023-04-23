@@ -1,0 +1,61 @@
+input_packets = ["S Mary", "P Dee", "P Dee", "E Eileen", \
+"E Mike", "E Joe", "P Dee", "E Vicky", "E George",\
+"P Dee", "P Joe", "E Sally", "P Joe", "S Pete",
+"P Dee", "S Bill", "S Chase", "E Price", "P Dee",\
+"E Sue"]
+
+#1) Build 3 queues using append
+#1a: create queue. p=priority, s=standard, e=economy
+
+p = []
+s = []
+e = []
+#1b: count how many are in the queue-21
+num_packets_input = len(input_packets)
+
+#1c: Separate the packets based on first character
+for x in range(num_packets_input):
+    packet_in = input_packets[x]
+    pclass = packet_in[0]
+    if pclass[0] == "P":
+        p.append(input_packets[x])
+    elif pclass[0] == "S":
+        s.append(input_packets[x])
+    else:
+        e.append(input_packets[x])
+
+#print(p)
+#print(s)
+#print(e)
+
+while num_packets_input > 0:
+    num_packets_input -= 1
+#2 pop the queue
+#2a: pop priority packets.
+    for a in range(3):
+        try:
+            num_packets_input -= 1
+            print(p[0])
+            p.pop(0)
+        except:
+            print("Priority done.")
+            break
+#2b: pop standard packets
+    for b in range(2):
+        try:
+            num_packets_input -= 1
+            print(s[0])
+            s.pop(0)
+        except:
+            print("Standard done.")
+            break
+# 2c: pop economy packets
+    for c in range(1):
+        try:
+            num_packets_input -= 1
+            print(e[0])
+            e.pop(0)
+        except:
+            print("Economy done.")
+            break
+
